@@ -43,7 +43,7 @@
 
     else
     {
-        set_message_alert("alert-warning", "fa-exclamation", "Page you were trying to access was not found.");
+        // set_message_alert("alert-warning", "fa-exclamation", "Page you were trying to access was not found.");
         // include("home.php");
         include("login.php");
     }
