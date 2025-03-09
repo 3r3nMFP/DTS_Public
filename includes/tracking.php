@@ -1,6 +1,7 @@
 
 <div class="stepper d-flex flex-column mt-2 ml-2">
 <?php 
+require_once("config.php");
               if(isset($_GET['tracking']))
               {
                   $tracking = escape_string($_GET['tracking']);
