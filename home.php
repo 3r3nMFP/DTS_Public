@@ -27,7 +27,7 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div class="container px-5">
                 <a class="navbar-brand" href="?home"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -35,19 +35,19 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="?home">Home</a></li>
                         <?php
-                        if(isset($_SESSION['user']))
-                        {
-                            echo '<li class="nav-item"><a class="nav-link" href="./dashboard">Dashboard</a></li>';
-                        }
-                        else
-                        {
-                            echo '<li class="nav-item"><a class="nav-link" href="?login">Login</a></li>';
-                        }
+                        //if(isset($_SESSION['user']))
+                        //{
+                            //echo '<li class="nav-item"><a class="nav-link" href="./dashboard">Dashboard</a></li>';
+                        //}
+                        //else
+                        //{
+                            //echo '<li class="nav-item"><a class="nav-link" href="?login">Login</a></li>';
+                        //}
                         ?>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
         <!-- Header-->
         <!-- <header class="bg-dark py-5 page-header"> -->
         <header class="py-5 header-bg">

@@ -18,17 +18,37 @@
   <link rel="stylesheet" href="dashboard/plugins/dataflex/jquery.flexdatalist.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Select2 CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+  <!-- jQuery and Select2 JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
 </head>
   <body class="login-page bg-body-secondary">
     <div class="container">
       <div class="row d-flex align-items-center justify-content-center">
         <!-- Form Section -->
         <div class="col-md-8">
+          <?php display_notice();?>
           <div class="card card-primary card-outline">
           <div class="card-header"><div class="card-title">Submit Document ( For Guest (LGU, Stakeholders,etc.))</div></div>
             <!--end::Header-->
             <!--begin::Form-->
             <form action="actions/add-document.php" method="post" id="addDoc">
+            <div class="form-group row">
+                <div class="col-12">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    </div> 
+                    <input id="doc_title" name="doc-owner" placeholder="Document Owner" type="text" class="form-control" required="required">
+                </div>
+                </div>
+            </div>
             <div class="form-group row">
                 <div class="col-12">
                 <div class="input-group">
@@ -69,6 +89,32 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group row">
+              <div class="col-12">
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                          <div class="input-group-text">
+                              <i class="fa fa-university" aria-hidden="true"></i>
+                          </div>
+                      </div> 
+                      <select id="doc-unit" name="doc-unit" class="custom-select select2" required>
+                          <option value="" disabled selected hidden>Document unit</option>
+                          <?php get_units(); ?>
+                      </select>
+                  </div>
+              </div>
+          </div>
+
+          <script>
+            $(document).ready(function() {
+                $('#doc-unit').select2({
+                    placeholder: "Select a document unit",
+                    allowClear: true
+                });
+            });
+        </script>
+
+
             <div class="form-group row">
                 <div class="col-12">
                     <div class="input-group">

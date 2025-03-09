@@ -208,21 +208,29 @@ ELLA;
 
 function get_unit_name($unit_id)
 {
-    // Make sure the unit_id is properly escaped or validated
     $sql = query("SELECT * FROM units WHERE unit_id = {$unit_id}");
     confirm($sql);
 
     $row = fetch_assoc($sql);
-    
-    // Check if the row is not null before accessing the array
-    if ($row) {
-        return $row['unit_name'];
-    } else {
-        // Return a default value or handle the case where no record is found
-        return 'Guest';
-    }
+    return $row['unit_name'];
 }
 
+function get_units()
+{
+    $sql = query("SELECT * FROM units WHERE unit_type = 'School' ORDER BY unit_name");
+    confirm($sql);
+
+    while($row = fetch_array($sql))
+    {
+        $unit_id = escape_string($row['unit_id']);
+        $unit_name = escape_string($row['unit_name']);
+
+        $option = <<<ELLA
+        <option value="{$unit_id}">{$unit_name}</option>
+ELLA;
+        echo $option;
+    }
+}
 
 function get_doctypes()
 {
@@ -335,18 +343,8 @@ function get_to_receive()
         while($docRow = fetch_array($bbyella))
         {
             $doctype = get_doctype_name($docRow['document_type']);
-            
-            $origin = "Guest";
-            if(get_unit_name($docRow['document_origin']))
-            {
-                $origin = get_unit_name($docRow['document_origin']);
-            }
-            $owner = "Guest";
-            if(get_unit_name($docRow['document_origin']))
-            {
-                $owner = get_unit_name($docRow['document_origin']);
-            }
-        
+            $origin = get_unit_name($docRow['document_origin']);
+            $owner = get_user_name($docRow['document_owner']);
             $title = $docRow['document_title'];
             $desc = $docRow['document_desc'];
             $purpose = $docRow['document_purpose'];
@@ -407,16 +405,8 @@ function get_to_release()
         while($docRow = fetch_array($bbyella))
         {
             $doctype = get_doctype_name($docRow['document_type']);
-            $origin = "Guest";
-            if(get_unit_name($docRow['document_origin']))
-            {
-                $origin = get_unit_name($docRow['document_origin']);
-            }
-            $owner = "Guest";
-            if(get_unit_name($docRow['document_origin']))
-            {
-                $owner = get_unit_name($docRow['document_origin']);
-            }
+            $origin = get_unit_name($docRow['document_origin']);
+            $owner = get_user_name($docRow['document_owner']);
             $title = $docRow['document_title'];
             $desc = $docRow['document_desc'];
             $purpose = $docRow['document_purpose'];
@@ -576,11 +566,8 @@ function get_accomplished_docs()
 
             $dateCreated = format_date($row['date_created']);
             $accompDate = format_date($row['accomp_date']);
-            $origin = "Guest";
-            if(get_unit_name($row['document_origin']))
-            {
-                $origin = get_unit_name($row['document_origin']);
-            }
+            
+            $origin = get_unit_name($row['document_origin']);
             $accompUnit = get_unit_name($row['accomp_unit']);
             $doctype = get_doctype_name($row['document_type']);
             $accompBy = get_user_name($row['accomp_by']);

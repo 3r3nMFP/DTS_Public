@@ -1,4 +1,5 @@
 <?php
+
     require_once("config.php");
 
     if($_SERVER['REQUEST_URI'] == SUBDIRECTORY)
@@ -44,7 +45,6 @@
     else
     {
         set_message_alert("alert-warning", "fa-exclamation", "Page you were trying to access was not found.");
-        // include("home.php");
-        include("login.php");
+        include("home.php");
     }
 ?>
