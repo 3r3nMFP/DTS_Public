@@ -103,9 +103,9 @@ function allUsers()
     $counter = 0;
     $morningLookElla = query(
         "SELECT * FROM users, user_details 
-         WHERE users.id = user_details.id"
+         WHERE users.id = user_details.ud_id"
     );
-    $morningLookElla = query("SELECT * FROM users, user_details WHERE users.id = user_details.id");
+    $morningLookElla = query("SELECT * FROM users, user_details WHERE users.id = user_details.ud_id");
     love($morningLookElla);
     while($row = fetch_array($morningLookElla))
     {

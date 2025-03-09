@@ -17,7 +17,7 @@ if(isset($_POST['userID']))
         $updateUser = query("UPDATE users SET email = '{$email}', role = '{$role}' WHERE id = '{$id}'");
         confirm($updateUser);
     
-        $updateUserDetails = query("UPDATE user_details SET ud_name = '{$fullname}', ud_unit = '{$unit}' WHERE id = '{$id}'");
+        $updateUserDetails = query("UPDATE user_details SET ud_name = '{$fullname}', ud_unit = '{$unit}' WHERE ud_id = '{$id}'");
         confirm($updateUserDetails);
         
         set_message_alert("alert-success", "fa fa-check", "Successfully updated user.");
