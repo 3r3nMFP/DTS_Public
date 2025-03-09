@@ -1,0 +1,19 @@
+.header-bg {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.10)), url("https://depednvrecords.files.wordpress.com/2015/04/cropped-division_office.png");
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bgimg-1{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../assets/images/export-1.jpg");
+    min-height: 100%;
+}
+

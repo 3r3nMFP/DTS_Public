@@ -1,0 +1,4 @@
+*.zip
+uploads/*.pdf
+robots.txt
+*.sql
