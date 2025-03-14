@@ -108,7 +108,7 @@
           <script>
             $(document).ready(function() {
                 $('#doc-unit').select2({
-                    placeholder: "Select a document unit",
+                    placeholder: "Select a school/unit",
                     allowClear: true
                 });
             });
