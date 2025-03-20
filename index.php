@@ -40,6 +40,10 @@
     {
         include("inspiration.php");
     }
+    else if(isset($_GET['client']))
+    {
+        include("client.php");
+    }
 
     else
     {

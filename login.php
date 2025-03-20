@@ -27,129 +27,6 @@
 
 </head>
   <body class="login-page bg-body-secondary">
-    <div class="container">
-      <div class="row d-flex align-items-center justify-content-center">
-        <!-- Form Section -->
-        <div class="col-md-8">
-          <?php display_notice();?>
-          <div class="card card-primary card-outline">
-          <div class="card-header"><div class="card-title">Submit Document ( For Guest (LGU, Stakeholders,etc.))</div></div>
-            <!--end::Header-->
-            <!--begin::Form-->
-            <form action="actions/add-document.php" method="post" id="addDoc">
-            <div class="form-group row">
-                <div class="col-12">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                    <div class="input-group-text">
-                      <i class="fa fa-user" aria-hidden="true"></i>
-                    </div>
-                    </div> 
-                    <input id="doc_title" name="doc-owner" placeholder="Document Owner" type="text" class="form-control" required="required">
-                </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-12">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                    <div class="input-group-text">
-                        <i class="fa fa-file"></i>
-                    </div>
-                    </div> 
-                    <input id="doc_title" name="doc-title" placeholder="Document Title" type="text" class="form-control" required="required">
-                </div>
-                </div>
-            </div>
-            <input type="hidden" name="referer" value="<?php echo $_SERVER['REQUEST_URI'];?> ">
-            <div class="form-group row">
-                <div class="col-12">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                    <div class="input-group-text">
-                        <i class="fa fa-comment"></i>
-                    </div>
-                    </div> 
-                    <input id="doc_desc" name="doc-desc" placeholder="Description" type="text" class="form-control" required="required">
-                </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-12">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <i class="fa fa-list"></i>
-                        </div>
-                        </div> 
-                        <select id="doc_type" name="doc-type" class="custom-select" required>
-                            <option value="" disabled selected hidden>Document type</option>
-                            <?php get_doctypes(); ?>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-12">
-                  <div class="input-group">
-                      <div class="input-group-prepend">
-                          <div class="input-group-text">
-                              <i class="fa fa-university" aria-hidden="true"></i>
-                          </div>
-                      </div> 
-                      <select id="doc-unit" name="doc-unit" class="custom-select select2" required>
-                          <option value="" disabled selected hidden>Document unit</option>
-                          <?php get_units(); ?>
-                      </select>
-                  </div>
-              </div>
-          </div>
-
-          <script>
-            $(document).ready(function() {
-                $('#doc-unit').select2({
-                    placeholder: "Select a school/unit",
-                    allowClear: true
-                });
-            });
-        </script>
-
-
-            <div class="form-group row">
-                <div class="col-12">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <i class="fa fa-reply"></i>
-                        </div>
-                        </div> 
-                        <select id="doc_to" name="doc-to" class="custom-select" required>
-                            <option value="" disabled selected hidden>Release to</option>
-                            <option value="121" >Receiving / Records</option>
-                            <!-- <optgroup label="Division Office">
-                                <?php //get_unit_do(); ?>
-                            </optgroup>
-                            <optgroup label="Public Schools">
-                                <?php //get_unit_public(); ?>
-                            </optgroup>
-                            <optgroup label="Private Schools">
-                                <?php//get_unit_private(); ?>
-                            </optgroup> -->
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-12">
-                <textarea id="remarks" name="doc-remarks" placeholder="Purpose/Remarks" cols="40" rows="5" class="form-control" required="required"></textarea>
-                </div>
-            </div> 
-            <button type="submit" form="addDoc" class="btn btn-block btn-outline-success" name="add-document"><i class="fas fa-plus"></i>&nbsp;&nbsp;Add Document</button>
-            </form>
-            <!--end::Form-->
-          </div>
-        </div>
-
         <!-- Login Section -->
         <div class="col-md-4">
           <div class="card card-outline card-primary">
@@ -192,8 +69,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
     <!-- Bootstrap 5 JS -->
     <script
